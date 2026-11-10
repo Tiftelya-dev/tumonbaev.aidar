@@ -23,8 +23,9 @@ export default function TreeNode({node}) {
         )}
         <span className="tree-label">{node.title}</span>
       </div>
+
       {hasChildren && open && (
-        <ul className="tree-list">
+        <ul className="tree-list" data-testid="tree-branch">
           {node.children.map((child) => (
             <TreeNode key={child.id} node={child} />
           ))}
