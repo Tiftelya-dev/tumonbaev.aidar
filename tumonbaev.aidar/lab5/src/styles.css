@@ -77,3 +77,7 @@ body {
 .tree-label {
   overflow-wrap: anywhere;
 }
+
+.tree-list[hidden] {
+  display: none;
+}
