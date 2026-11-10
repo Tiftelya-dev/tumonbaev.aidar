@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
-export default function TreeNode({node}) {
-  const [open, setOpen] = useState(false);
+export default function TreeNode({node, level = 0}) {
+  const [open, setOpen] = useState(level === 0);
   const hasChildren = Array.isArray(node.children) && node.children.length > 0;
 
   return (
@@ -27,7 +27,7 @@ export default function TreeNode({node}) {
       {hasChildren && (
         <ul className="tree-list" data-testid="tree-branch" hidden={!open}>
           {node.children.map((child) => (
-            <TreeNode key={child.id} node={child} />
+            <TreeNode key={child.id} node={child} level={level + 1} />
           ))}
         </ul>
       )}
