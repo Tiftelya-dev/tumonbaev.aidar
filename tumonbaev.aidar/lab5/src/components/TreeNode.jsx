@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
 export default function TreeNode({node, level = 0}) {
-  const [open, setOpen] = useState(level === 0);
+  const [open, setOpen] = useState(true);
   const hasChildren = Array.isArray(node.children) && node.children.length > 0;
 
   return (
     <li className="tree-item" data-testid="tree-node">
-      <div className="tree-row">
+      <div className="tree-row" data-testid="tree-level" data-level={level}>
         {hasChildren ? (
           <button
             type="button"
